@@ -1,14 +1,10 @@
 // Write your Character component here
 import React, { } from 'react'
 import styled from 'styled-components'
+import arrows from './arrowIcons'
 
 const Character = props => {
-   const { charInfo, key } = props
-
-   const CharDiv = styled.div`
-   opacity: .5;
-   background-color: #FFFAE6;
-   `
+   const { charInfo, setCurrentCharId } = props
 
    const CharName = styled.p`
       opacity: 1;
@@ -17,10 +13,20 @@ const Character = props => {
       font-size: 1.2rem
    `
 
+   const openDetails = created => {
+      setCurrentCharId(created)
+   }
+
    return (
-      <div>
+      <div className='expand'>
          <CharName>
             {charInfo.name}
+            <button onClick={() => {
+               openDetails(charInfo.created)
+            }
+            } >
+               {arrows.open}
+            </button>
          </CharName>
       </div>
    )

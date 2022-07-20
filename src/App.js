@@ -63,12 +63,14 @@ const App = () => {
         </HeaderDiv>
         <CharDiv>
           {
-            characters.map((person, i) => {
-              return <Character key={person[i]} charInfo={person} />
+            characters.map((person) => {
+              return <Character charInfo={person} setCurrentCharId={setCurrentCharId} />
             })
           }
           {
-            currentCharId && <Details charId={currentCharId} close={closeDetails} />
+            currentCharId && characters.map((person) => {
+              <Details charId={person.created} close={closeDetails} charInfo={person} />
+            })
           }
         </CharDiv>
       </AppDiv>
