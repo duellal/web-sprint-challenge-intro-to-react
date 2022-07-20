@@ -4,7 +4,7 @@ const Details = props => {
    const { charId, closeDetails } = props
 
    return (
-      
+      null
    )
 }
 
