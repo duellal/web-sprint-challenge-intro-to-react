@@ -16,6 +16,7 @@ const App = () => {
   // side effect in a component, you want to think about which state and/or props it should
   // sync up with, if any.
 
+  //closeDetails is for the details accordion component
   const closeDetails = () => {
     setCurrentCharId(null)
   }
@@ -64,11 +65,12 @@ const App = () => {
         <CharDiv>
           {
             characters.map((person) => {
+              console.log(person)
               return <Character charInfo={person} setCurrentCharId={setCurrentCharId} />
             })
           }
           {
-            currentCharId && characters.map((person) => {
+            characters.map((person) => {
               <Details charId={person.created} close={closeDetails} charInfo={person} />
             })
           }
